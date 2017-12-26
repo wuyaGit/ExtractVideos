@@ -13,6 +13,7 @@
 		592B74461FF24D4700E7C232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592B74451FF24D4700E7C232 /* Assets.xcassets */; };
 		592B74491FF24D4700E7C232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592B74471FF24D4700E7C232 /* LaunchScreen.storyboard */; };
 		592B744C1FF24D4700E7C232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B744B1FF24D4700E7C232 /* main.m */; };
+		8572906A1FF272AC00A7FD28 /* WYPhotoLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		592B74481FF24D4700E7C232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		592B744A1FF24D4700E7C232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592B744B1FF24D4700E7C232 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		857290681FF272AC00A7FD28 /* WYPhotoLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYPhotoLibraryController.h; sourceTree = "<group>"; };
+		857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYPhotoLibraryController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				592B743D1FF24D4700E7C232 /* AppDelegate.m */,
 				592B743F1FF24D4700E7C232 /* ViewController.h */,
 				592B74401FF24D4700E7C232 /* ViewController.m */,
+				857290681FF272AC00A7FD28 /* WYPhotoLibraryController.h */,
+				857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */,
 				592B74521FF24D5000E7C232 /* Resource */,
 			);
 			path = ExtractVideos;
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8572906A1FF272AC00A7FD28 /* WYPhotoLibraryController.m in Sources */,
 				592B74411FF24D4700E7C232 /* ViewController.m in Sources */,
 				592B744C1FF24D4700E7C232 /* main.m in Sources */,
 				592B743E1FF24D4700E7C232 /* AppDelegate.m in Sources */,

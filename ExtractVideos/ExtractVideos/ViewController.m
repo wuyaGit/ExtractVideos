@@ -10,6 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Photos/Photos.h>
 
+#import "WYPhotoLibraryController.h"
+
+static NSString *AssetCollectionName = @"自定义相册";
+
 @interface ViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
@@ -29,29 +33,25 @@
 
 //打开摄像头
 - (IBAction)onTouchOpenVideosAction:(id)sender {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    __weak typeof(*&self) weakSelf = self;
-    UIAlertAction *pzAction = [UIAlertAction actionWithTitle:@"拍视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        [weakSelf openCameraAction];
-    }];
-    UIAlertAction *xzAction = [UIAlertAction actionWithTitle:@"从手机本地文件选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-//        UINavigationController *manageFile = (UINavigationController *)[TSTCommon storyboard:@"Main" wihtIdentifer:@"manageFileNavigationController"];
-//        ((ManageSourceFileViewController *)manageFile.visibleViewController).complection = ^(NSMutableArray *array) {
-//            UIViewController *viewController = [TSTCommon storyboard:@"Main" wihtIdentifer:@"uploadFilesViewController"];
-//            [viewController setValue:array forKey:@"uploadFiles"];
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 //
-//            [weakSelf.navigationController pushViewController:viewController animated:YES];
-//        };
+//    __weak typeof(*&self) weakSelf = self;
+//    UIAlertAction *pzAction = [UIAlertAction actionWithTitle:@"拍视频" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+//        [weakSelf openCameraAction];
+//    }];
+//    UIAlertAction *xzAction = [UIAlertAction actionWithTitle:@"从手机本地文件选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//    }];
+//    UIAlertAction *qxAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+//    [alertController addAction:pzAction];
+//    [alertController addAction:xzAction];
+//    [alertController addAction:qxAction];
 //
-//        [weakSelf.navigationController presentViewController:manageFile animated:YES completion:nil];
-    }];
-    UIAlertAction *qxAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    [alertController addAction:pzAction];
-    [alertController addAction:xzAction];
-    [alertController addAction:qxAction];
+//    [self presentViewController:alertController animated:YES completion:nil];
     
-    [self presentViewController:alertController animated:YES completion:nil];
+    WYPhotoLibraryController *picker = [[WYPhotoLibraryController alloc]init];
+    picker.mediaType = WYPhotoMediaTypeImage;
+    
+    [self presentViewController:picker animated:YES completion:nil];
 }
 
 #pragma mark - Private
@@ -115,15 +115,49 @@
         __block NSString *assetCollectionId = nil;//用来抓取PHAssetCollectin的字符串标识符
         
         //保存视频到【Camera Roll】(相机胶卷)
-        [library performChanges:^{
+        [library performChangesAndWait:^{
             assetId = [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:sourceURL].placeholderForCreatedAsset.localIdentifier;
-        } completionHandler:^(BOOL success, NSError * _Nullable error) {
-            
-        }];
+        } error:&error];
         
+        //获取创建过的自定义视频相册名字
+        PHAssetCollection *createAssetCollection = nil;
+        PHFetchResult<PHAssetCollection *> *assetCollections = [PHAssetCollection  fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+        for (PHAssetCollection *assetCollection in assetCollections) {
+            if ([assetCollection.localizedTitle isEqualToString:AssetCollectionName]) {
+                createAssetCollection = assetCollection;
+                
+                break;
+            }
+        }
+        
+        //如果没有自定义相册，创建一个
+        if (createAssetCollection == nil) {
+            [library performChangesAndWait:^{
+                assetCollectionId = [PHAssetCollectionChangeRequest creationRequestForAssetCollectionWithTitle:AssetCollectionName].placeholderForCreatedAssetCollection.localIdentifier;
+                
+            } error:&error];
+
+            //抓取刚创建完的视频相册对象
+            createAssetCollection = [PHAssetCollection fetchAssetCollectionsWithLocalIdentifiers:@[assetCollectionId] options:nil].firstObject;
+        }
+        
+        // 将(相机胶卷)的视频 添加到自定义的相册中
+        [library performChangesAndWait:^{
+            PHAssetCollectionChangeRequest *request = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:createAssetCollection];
+            
+            //视频
+            [request addAssets:[PHAsset fetchAssetsWithLocalIdentifiers:@[assetId] options:nil]];
+        } error:&error];
+        
+        //提示信息
+        if (error) {
+            NSLog(@"保存视频失败!");
+        } else {
+            NSLog(@"保存视频成功!");
+        }
     });
     
-    
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
