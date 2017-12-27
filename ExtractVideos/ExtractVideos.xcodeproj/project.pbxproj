@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		590734CF1FF343A900CB3DD6 /* WYPhotoLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */; };
 		592B743E1FF24D4700E7C232 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B743D1FF24D4700E7C232 /* AppDelegate.m */; };
 		592B74411FF24D4700E7C232 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B74401FF24D4700E7C232 /* ViewController.m */; };
 		592B74441FF24D4700E7C232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592B74421FF24D4700E7C232 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WYPhotoLibrary.bundle; sourceTree = "<group>"; };
 		592B74391FF24D4600E7C232 /* ExtractVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExtractVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		592B743C1FF24D4700E7C232 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		592B743D1FF24D4700E7C232 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				592B74401FF24D4700E7C232 /* ViewController.m */,
 				857290681FF272AC00A7FD28 /* WYPhotoLibraryController.h */,
 				857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */,
+				590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */,
 				592B74521FF24D5000E7C232 /* Resource */,
 			);
 			path = ExtractVideos;
@@ -142,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590734CF1FF343A900CB3DD6 /* WYPhotoLibrary.bundle in Resources */,
 				592B74491FF24D4700E7C232 /* LaunchScreen.storyboard in Resources */,
 				592B74461FF24D4700E7C232 /* Assets.xcassets in Resources */,
 				592B74441FF24D4700E7C232 /* Main.storyboard in Resources */,

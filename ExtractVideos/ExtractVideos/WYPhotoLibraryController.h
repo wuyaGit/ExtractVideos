@@ -8,53 +8,57 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, WYPhotoFilterType) {
+    WYPhotoFilterAllImage   = 0,
+    WYPhotoFilterAllVideo,
+    WYPhotoFilterAll
+};
+
 typedef NS_ENUM(NSInteger, WYPhotoMediaType) {
-    WYPhotoMediaTypeImage   = 0,
+    WYPhotoMediaTypeUnknown   = 0,
+    WYPhotoMediaTypeImage,
     WYPhotoMediaTypeVideo,
-    WYPhotoMediaTypeAll
-} ;
-
-@interface WYPhotoLibraryController : UINavigationController
-
-@property (nonatomic, assign) WYPhotoMediaType mediaType;
-
-@end
-
-@interface WYPhotoGroup: NSObject
-
-@property (nonatomic, strong) id assetCollection;
-@property (nonatomic, strong) id fetchResult;
-
-@property (nonatomic, copy) NSString *groupName;
-@property (nonatomic, assign) NSInteger count;
-@property (nonatomic, copy) void (^getThumbnail)(UIImage *);
-
-- (void)enumerateObjectsUsingBlock:(void (^)(id obj, NSUInteger idx, BOOL *stop))block;
-@end
+    WYPhotoMediaTypeAudio
+};
 
 @interface WYPhoto: NSObject
 
 @property (nonatomic, strong) id asset;
+@property (nonatomic, assign) WYPhotoMediaType mediaType;
 
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, assign) NSTimeInterval duration;      //视频时长
+@property (nonatomic, getter=isSelected, assign) BOOL selected;
 
-@property (nonatomic, copy) NSString *photoName;
-@property (nonatomic, assign) NSInteger photoSize;
-@property (nonatomic, strong) UIImage *thumbnail;
 @property (nonatomic, copy) void (^getThumbnail)(UIImage *);
+@property (nonatomic, copy) void (^getFullImage)(UIImage *);
+@property (nonatomic, copy) void (^getFileSize)(NSInteger);
+
+@property (nonatomic, copy) void (^getNetworkProgressHandler)(double, NSError *, BOOL *, NSDictionary *);
 
 @end
 
+@protocol WYPhotoLibraryControllerDelegate;
+@interface WYPhotoLibraryController : UINavigationController
 
-@interface WYPhotoGroupViewCell: UITableViewCell
+@property (nonatomic, assign) WYPhotoFilterType photoFilterType;
+@property (nonatomic, weak) id<WYPhotoLibraryControllerDelegate> libraryDelegate;
 
-@property (nonatomic, strong) WYPhotoGroup *photoGroup;
+@end
+
+@protocol WYPhotoLibraryControllerDelegate<NSObject>
+@optional
+
+- (void)photoLibraryController:(WYPhotoLibraryController *)library didFinishPickingPhotos:(NSArray *)photos;
+- (void)photoLibraryControllerDidCancel:(WYPhotoLibraryController *)library;
 @end
 
 @interface WYPhotoGroupViewController: UITableViewController
 
 @end
 
+@class WYPhotoGroup;
 @interface WYPhotoViewController: UIViewController
-
 @property (nonatomic, strong) WYPhotoGroup *group;
+
 @end
