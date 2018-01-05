@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://github.com/wuyaGit/WYPhotoLibraryController.git'
+platform :ios, '8.0'
+#屏蔽第三方库警告
+inhibit_all_warnings!
+
+target 'ExtractVideos' do
+    pod 'WYPhotoLibraryController'
+#pod 'WYPhotoLibraryController', :path => '~/WYPhotoLibraryController' # 指定路径（也就是podspec的路径）
+# pod 'WYPhotoLibraryController', :podspec => '~/WYPhotoLibraryController/WYPhotoLibraryController.podspec'   # 指定podspec
+end

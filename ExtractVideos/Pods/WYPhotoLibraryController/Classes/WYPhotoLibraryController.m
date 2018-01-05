@@ -471,8 +471,17 @@
 }
 
 - (void)noAssets {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"没有照片或视频", nil)
-                                                                             message:NSLocalizedString(@"您可以使用 iTunes 将照片和视频\n同步到 iPhone。", nil) preferredStyle:UIAlertControllerStyleAlert];
+    WYPhotoLibraryController *library = (WYPhotoLibraryController *)self.navigationController;
+    NSString *title = NSLocalizedString(@"没有照片或视频", nil);
+    if (library.photoFilterType == WYPhotoFilterAllVideo) {
+        title = NSLocalizedString(@"没有视频", nil);
+    }else if (library.photoFilterType == WYPhotoFilterAllImage) {
+        title = NSLocalizedString(@"没有照片", nil);
+    }
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
+                                                                             message:NSLocalizedString(@"您可以使用 iTunes 将照片和视频\n同步到 iPhone。", nil)
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *qdAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil) style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:qdAction];
     

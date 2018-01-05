@@ -1,0 +1,23 @@
+{
+  "name": "WYPhotoLibraryController",
+  "version": "0.0.4",
+  "summary": "使用PHAsset库选择媒体资源库中的资源",
+  "description": "使用PHAsset库选择媒体资源库中的资源。使用Objective-C语言，支持iOS8以上版本。",
+  "homepage": "https://github.com/wuyaGit/WYPhotoLibraryController",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "young": "yoounglolo@gmail.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/wuyaGit/WYPhotoLibraryController.git"
+  },
+  "source_files": "WYPhotoLibraryController/*",
+  "resources": "WYPhotoLibraryController/*.bundle",
+  "requires_arc": true
+}

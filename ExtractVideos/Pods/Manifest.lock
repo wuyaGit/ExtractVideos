@@ -1,0 +1,12 @@
+PODS:
+  - WYPhotoLibraryController (0.0.3)
+
+DEPENDENCIES:
+  - WYPhotoLibraryController
+
+SPEC CHECKSUMS:
+  WYPhotoLibraryController: 32719397f98dd522a9ffec360320669d4f4aff9a
+
+PODFILE CHECKSUM: 6021069e8532c60fecc13e762f4f709970cb9922
+
+COCOAPODS: 1.4.0.rc.1

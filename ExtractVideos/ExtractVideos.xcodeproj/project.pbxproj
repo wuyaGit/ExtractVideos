@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		590734CF1FF343A900CB3DD6 /* WYPhotoLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */; };
 		592B743E1FF24D4700E7C232 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B743D1FF24D4700E7C232 /* AppDelegate.m */; };
 		592B74411FF24D4700E7C232 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B74401FF24D4700E7C232 /* ViewController.m */; };
 		592B74441FF24D4700E7C232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592B74421FF24D4700E7C232 /* Main.storyboard */; };
 		592B74461FF24D4700E7C232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592B74451FF24D4700E7C232 /* Assets.xcassets */; };
 		592B74491FF24D4700E7C232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592B74471FF24D4700E7C232 /* LaunchScreen.storyboard */; };
 		592B744C1FF24D4700E7C232 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592B744B1FF24D4700E7C232 /* main.m */; };
-		8572906A1FF272AC00A7FD28 /* WYPhotoLibraryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */; };
+		FFB52EF17A481001F348B8D9 /* libPods-ExtractVideos.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F015C9D433E5B914D6355E7 /* libPods-ExtractVideos.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WYPhotoLibrary.bundle; sourceTree = "<group>"; };
 		592B74391FF24D4600E7C232 /* ExtractVideos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExtractVideos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		592B743C1FF24D4700E7C232 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		592B743D1FF24D4700E7C232 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -29,8 +27,9 @@
 		592B74481FF24D4700E7C232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		592B744A1FF24D4700E7C232 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		592B744B1FF24D4700E7C232 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		857290681FF272AC00A7FD28 /* WYPhotoLibraryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WYPhotoLibraryController.h; sourceTree = "<group>"; };
-		857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WYPhotoLibraryController.m; sourceTree = "<group>"; };
+		6C60EEE8DD71F66F51DC81AA /* Pods-ExtractVideos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExtractVideos.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExtractVideos/Pods-ExtractVideos.release.xcconfig"; sourceTree = "<group>"; };
+		6F015C9D433E5B914D6355E7 /* libPods-ExtractVideos.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExtractVideos.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F263613971685818F24FB06 /* Pods-ExtractVideos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExtractVideos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExtractVideos/Pods-ExtractVideos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB52EF17A481001F348B8D9 /* libPods-ExtractVideos.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +49,8 @@
 			children = (
 				592B743B1FF24D4700E7C232 /* ExtractVideos */,
 				592B743A1FF24D4600E7C232 /* Products */,
+				CC98A21CDD368AEC2A44D28A /* Pods */,
+				AB5497C3846B08558301B63A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,9 +69,6 @@
 				592B743D1FF24D4700E7C232 /* AppDelegate.m */,
 				592B743F1FF24D4700E7C232 /* ViewController.h */,
 				592B74401FF24D4700E7C232 /* ViewController.m */,
-				857290681FF272AC00A7FD28 /* WYPhotoLibraryController.h */,
-				857290691FF272AC00A7FD28 /* WYPhotoLibraryController.m */,
-				590734CE1FF343A900CB3DD6 /* WYPhotoLibrary.bundle */,
 				592B74521FF24D5000E7C232 /* Resource */,
 			);
 			path = ExtractVideos;
@@ -87,6 +86,23 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
+		AB5497C3846B08558301B63A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F015C9D433E5B914D6355E7 /* libPods-ExtractVideos.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC98A21CDD368AEC2A44D28A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F263613971685818F24FB06 /* Pods-ExtractVideos.debug.xcconfig */,
+				6C60EEE8DD71F66F51DC81AA /* Pods-ExtractVideos.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -94,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 592B744F1FF24D4700E7C232 /* Build configuration list for PBXNativeTarget "ExtractVideos" */;
 			buildPhases = (
+				129552D710073A449F34E590 /* [CP] Check Pods Manifest.lock */,
 				592B74351FF24D4600E7C232 /* Sources */,
 				592B74361FF24D4600E7C232 /* Frameworks */,
 				592B74371FF24D4600E7C232 /* Resources */,
+				B8305D28529EA782F85D6E72 /* [CP] Embed Pods Frameworks */,
+				5A9120524408A8ECD67E3E00 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -145,7 +164,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				590734CF1FF343A900CB3DD6 /* WYPhotoLibrary.bundle in Resources */,
 				592B74491FF24D4700E7C232 /* LaunchScreen.storyboard in Resources */,
 				592B74461FF24D4700E7C232 /* Assets.xcassets in Resources */,
 				592B74441FF24D4700E7C232 /* Main.storyboard in Resources */,
@@ -154,12 +172,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		129552D710073A449F34E590 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExtractVideos-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A9120524408A8ECD67E3E00 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ExtractVideos/Pods-ExtractVideos-resources.sh",
+				"${PODS_ROOT}/WYPhotoLibraryController/Classes/WYPhotoLibrary.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WYPhotoLibrary.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExtractVideos/Pods-ExtractVideos-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8305D28529EA782F85D6E72 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ExtractVideos/Pods-ExtractVideos-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		592B74351FF24D4600E7C232 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8572906A1FF272AC00A7FD28 /* WYPhotoLibraryController.m in Sources */,
 				592B74411FF24D4700E7C232 /* ViewController.m in Sources */,
 				592B744C1FF24D4700E7C232 /* main.m in Sources */,
 				592B743E1FF24D4700E7C232 /* AppDelegate.m in Sources */,
@@ -294,6 +365,7 @@
 		};
 		592B74501FF24D4700E7C232 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F263613971685818F24FB06 /* Pods-ExtractVideos.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -310,6 +382,7 @@
 		};
 		592B74511FF24D4700E7C232 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C60EEE8DD71F66F51DC81AA /* Pods-ExtractVideos.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;

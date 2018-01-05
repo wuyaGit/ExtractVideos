@@ -81,6 +81,31 @@ static NSString *AssetCollectionName = @"WYPhotoLibrary";
 
 
 - (void)useCameraHandler {
+    NSString *mediaType = AVMediaTypeVideo;//读取媒体类型
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];//读取设备授权状态
+    if(authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied){
+        NSString *tipTextWhenNoPhotosAuthorization = @"请在设备的\"设置-隐私-照片\"选项中，允许App访问您的手机相册。";
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"此应用没有权限访问相册"
+                                                                                 message:tipTextWhenNoPhotosAuthorization
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *qdAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:qdAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"无摄像头可用"
+                                                                                 message:nil
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *qdAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:qdAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
+    
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     
     //sourcetype有三种分别是camera，photoLibrary和photoAlbum
